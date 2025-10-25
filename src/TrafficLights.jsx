@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./trafficLights.css";
 
 const TrafficLights = () => {
+
+  const [isActive,setIsActive]=useState(false)
+
+
+
   const style = {
     backgroundColor: "gray",
     height: "4rem",
@@ -9,6 +14,16 @@ const TrafficLights = () => {
     margin: "auto",
     borderRadius: "50%",
   };
+
+
+  const lightWorks=()=>{
+
+    
+
+
+
+  }
+
 
   return (
     <div className="app">
@@ -24,9 +39,9 @@ const TrafficLights = () => {
           margin: "auto",
         }}
       >
-        <div className="container" style={style}></div>
-        <div className="container" style={style}></div>
-        <div className="container" style={style}></div>
+        <div className="container" style={style} defaultValue={isActive}></div>
+        <div className="container" style={style} defaultValue={isActive}></div>
+        <div className="container" style={style} defaultValue={isActive}></div>
       </div>
     </div>
   );
