@@ -1,4 +1,5 @@
 import React from 'react'
+import './trafficLights.css'
 
 const TrafficLights = () => {
 //    const [isActive, setActive] = useState(true);
@@ -11,14 +12,36 @@ const TrafficLights = () => {
    //   setInterval(() => {
    //    \
 
+
+   const style = {
+     backgroundColor: "gray",
+     height: "4rem",
+     width:"4rem",
+     margin:"auto",
+     borderRadius:"50%"
+     
+
+
+
+   };
   
    return (
      <div className="app">
-      <h2>Jello</h2>
-       <div className="container_box">
-         <div className="container" style={{ backgroundColor: "red" }}>jjj</div>
-         <div className="container"></div>
-         <div className="container"></div>
+       <div
+         className="container_box"
+         style={{
+           display: "flex",
+           alignItems: "center",
+           flexDirection: "column",
+           backgroundColor: "black",
+           height: "30rem",
+           width: "10rem",
+           margin: "auto",
+         }}
+       >
+         <div className="container" style={style}></div>
+         <div className="container" style={style}></div>
+         <div className="container" style={style}></div>
        </div>
      </div>
    );
