@@ -2,26 +2,21 @@ import React, { useEffect, useState } from "react";
 import "./trafficLights.css";
 
 const TrafficLights = () => {
-  // const [isActive, setIsActive] = useState(false);
-  const isActive = true;
+  const [isActive, setIsActive] = useState(0);
   const lights = ["first", "second", "third"];
 
   const style = {
-    backgroundColor: "gray",
-    height: "4rem",
-    width: "4rem",
-    margin: "auto",
-    borderRadius: "50%",
+    // backgroundColor: "gray",
   };
 
-  const lightWorks = (timer) => {
-    clearInterval(timer);
-    setInterval(() => {}, 2000);
-  };
+  const getColour = () => {};
 
   useEffect(() => {
-    lightWorks();
-  });
+    const interval = setInterval(() => {
+      setIsActive((prev) => (prev + 1) % lights.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="app">
@@ -37,18 +32,26 @@ const TrafficLights = () => {
           margin: "auto",
         }}
       >
-        {/* {lights.map((light,index)=>{
-          return(
+        {lights.map((light, index) => {
+          return (
             <div>
-
-              <div className="container" style={style} id="1" defaultValue={isActive}>{light}</div>
+              <div
+                className="container"
+                style={{
+                  backgroundColor: getColour(index),
+                  height: "4rem",
+                  width: "4rem",
+                  margin: "auto",
+                  borderRadius: "50%",
+                }}
+                key={index}
+                defaultValue={isActive}
+              >
+                {light}
+              </div>
             </div>
-          )
-
-        })} */}
-        <div className="container" style={style} id="1" active={true}></div>
-        <div className="container" style={style} id="2" active={true}></div>
-        <div className="container" style={style} id="3" active={true}></div>
+          );
+        })}
       </div>
     </div>
   );
