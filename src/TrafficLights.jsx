@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./trafficLights.css";
 
 const TrafficLights = () => {
-
-  const [isActive,setIsActive]=useState(false)
-
-
+  const [isActive, setIsActive] = useState(false);
+  const lights = ["first", "second", "third"];
 
   const style = {
     backgroundColor: "gray",
@@ -15,15 +13,11 @@ const TrafficLights = () => {
     borderRadius: "50%",
   };
 
+  const lightWorks = () => {};
 
-  const lightWorks=()=>{
-
-    
-
-
-
-  }
-
+  useEffect(() => {
+    lightWorks();
+  });
 
   return (
     <div className="app">
@@ -39,9 +33,33 @@ const TrafficLights = () => {
           margin: "auto",
         }}
       >
-        <div className="container" style={style} defaultValue={isActive}></div>
-        <div className="container" style={style} defaultValue={isActive}></div>
-        <div className="container" style={style} defaultValue={isActive}></div>
+        {/* {lights.map((light,index)=>{
+          return(
+            <div>
+
+              <div className="container" style={style} id="1" defaultValue={isActive}>{light}</div>
+            </div>
+          )
+          
+        })} */}
+        <div
+          className="container"
+          style={style}
+          id="1"
+          defaultValue={isActive}
+        ></div>
+        <div
+          className="container"
+          style={style}
+          id="2"
+          defaultValue={isActive}
+        ></div>
+        <div
+          className="container"
+          style={style}
+          id="3"
+          defaultValue={isActive}
+        ></div>
       </div>
     </div>
   );
