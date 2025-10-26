@@ -5,11 +5,12 @@ const TrafficLights = () => {
   const [isActive, setIsActive] = useState(0);
   const lights = ["first", "second", "third"];
 
-  const style = {
-    // backgroundColor: "gray",
-  };
+  
+  const getColour = (index) => {
 
-  const getColour = () => {};
+    return isActive===index? lights[index] :"gray"
+
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,6 +27,7 @@ const TrafficLights = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
+          justifyContent:"center",
           backgroundColor: "black",
           height: "30rem",
           width: "10rem",
@@ -41,13 +43,12 @@ const TrafficLights = () => {
                   backgroundColor: getColour(index),
                   height: "4rem",
                   width: "4rem",
-                  margin: "auto",
+                  margin: "2rem",
                   borderRadius: "50%",
                 }}
                 key={index}
-                defaultValue={isActive}
               >
-                {light}
+              
               </div>
             </div>
           );
