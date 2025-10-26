@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import "./trafficLights.css";
 
 const TrafficLights = () => {
   const [isActive, setIsActive] = useState(0);
-  const lights = ["first", "second", "third"];
+  const lights = ["red", "orange", "green"];
 
   
-  const getColour = (index) => {
-
-    return isActive===index? lights[index] :"gray"
-
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setIsActive((prev) => (prev + 1) % lights.length);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
+
+  const getColour = (index) => {
+    return isActive === index ? lights[index] : "gray";
+  };
+
 
   return (
     <div className="app">
@@ -27,7 +25,7 @@ const TrafficLights = () => {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          justifyContent:"center",
+          justifyContent: "center",
           backgroundColor: "black",
           height: "30rem",
           width: "10rem",
@@ -36,21 +34,17 @@ const TrafficLights = () => {
       >
         {lights.map((light, index) => {
           return (
-            <div>
-              <div
-                className="container"
-                style={{
-                  backgroundColor: getColour(index),
-                  height: "4rem",
-                  width: "4rem",
-                  margin: "2rem",
-                  borderRadius: "50%",
-                }}
-                key={index}
-              >
-              
-              </div>
-            </div>
+            <div
+              className="container"
+              style={{
+                backgroundColor: getColour(index),
+                height: "4rem",
+                width: "4rem",
+                margin: "2rem",
+                borderRadius: "50%",
+              }}
+              key={index}
+            ></div>
           );
         })}
       </div>
