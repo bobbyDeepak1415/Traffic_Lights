@@ -4,12 +4,16 @@ const TrafficLights = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const lights = ["red", "orange", "green"];
 
-  
   useEffect(() => {
+       console.log("🟢 useEffect triggered — activeIndex:", activeIndex);
     const interval = setInterval(() => {
+        console.log("⏱ Interval fired → changing light from", activeIndex);
       setActiveIndex((prev) => (prev + 1) % lights.length);
     }, 1000);
-    return () => clearInterval(interval);
+    return () => {
+  console.log("🧹 Cleaning up interval for activeIndex:", activeIndex);
+      clearInterval(interval);
+    }
   }, [activeIndex, lights.length]);
 
   const getColour = (index) => {
