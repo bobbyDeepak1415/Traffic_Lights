@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
 
 const TrafficLights = () => {
-  const [isActive, setIsActive] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const lights = ["red", "orange", "green"];
 
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsActive((prev) => (prev + 1) % lights.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setactiveIndex((prev) => (prev + 1) % lights.length);
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // }, []);
+
+   useEffect(() => {
+     if (activeIndex < lights.length - 1) {
+       const timer = setTimeout(() => {
+         setActiveIndex((prev) => prev + 1);
+       }, 2000);
+
+       return () => clearTimeout(timer);
+     }
+   }, [activeIndex]);
 
   const getColour = (index) => {
-    return isActive === index ? lights[index] : "gray";
+    return activeIndex === index ? lights[index] : "gray";
   };
 
 
