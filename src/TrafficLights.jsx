@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./trafficLights.css";
 
 const TrafficLights = () => {
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
+  const isActive = true;
   const lights = ["first", "second", "third"];
 
   const style = {
@@ -13,7 +14,10 @@ const TrafficLights = () => {
     borderRadius: "50%",
   };
 
-  const lightWorks = () => {};
+  const lightWorks = (timer) => {
+    clearInterval(timer);
+    setInterval(() => {}, 2000);
+  };
 
   useEffect(() => {
     lightWorks();
@@ -40,26 +44,11 @@ const TrafficLights = () => {
               <div className="container" style={style} id="1" defaultValue={isActive}>{light}</div>
             </div>
           )
-          
+
         })} */}
-        <div
-          className="container"
-          style={style}
-          id="1"
-          defaultValue={isActive}
-        ></div>
-        <div
-          className="container"
-          style={style}
-          id="2"
-          defaultValue={isActive}
-        ></div>
-        <div
-          className="container"
-          style={style}
-          id="3"
-          defaultValue={isActive}
-        ></div>
+        <div className="container" style={style} id="1" active={true}></div>
+        <div className="container" style={style} id="2" active={true}></div>
+        <div className="container" style={style} id="3" active={true}></div>
       </div>
     </div>
   );
