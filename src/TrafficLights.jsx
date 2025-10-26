@@ -4,28 +4,26 @@ const TrafficLights = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const lights = ["red", "orange", "green"];
 
-  
   // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setactiveIndex((prev) => (prev + 1) % lights.length);
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  //   if (activeIndex < lights.length - 1) {
+  //     const timer = setTimeout(() => {
+  //       setActiveIndex((prev) => prev + 1);
+  //     }, 2000);
 
-   useEffect(() => {
-     if (activeIndex < lights.length - 1) {
-       const timer = setTimeout(() => {
-         setActiveIndex((prev) => prev + 1);
-       }, 2000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [activeIndex]);
 
-       return () => clearTimeout(timer);
-     }
-   }, [activeIndex]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % lights.length);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   const getColour = (index) => {
     return activeIndex === index ? lights[index] : "gray";
   };
-
 
   return (
     <div className="app">
