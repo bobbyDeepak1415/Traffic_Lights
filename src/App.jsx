@@ -1,11 +1,13 @@
-import TrafficLights from './TrafficLights'
+import Demo from './Demo'
+// import TrafficLights from './TrafficLights'
 
 function App() {
 
   return (
     <>
       <div>
-       <TrafficLights/>
+       {/* <TrafficLights/> */}
+       <Demo/>
       </div>
      
     </>
