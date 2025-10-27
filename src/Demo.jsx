@@ -1,10 +1,20 @@
 import React from "react";
 
 const Demo = () => {
+
+    const [currentIndex,setCurrentIndex]=useState(0)
+
   const lights = ["red", "orange", "green"];
 
+
+  const getColour=(index)=>{
+
+return currentIndex===index ? lights[index] : "gray"
+
+  }
+
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex",justifyContent:"center" }}>
       <div
         className="containers_Box"
         style={{
@@ -22,7 +32,7 @@ const Demo = () => {
             key={index}
               className="container"
               style={{
-                backgroundColor: "gray",
+                backgroundColor: getColour(index),
                 height: "5rem",
                 width: "5rem",
                 borderRadius: "50%",
