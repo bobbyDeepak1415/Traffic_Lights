@@ -14,9 +14,7 @@ const Demo = () => {
   }, []);
 
   const getColour = (index) => {
-    const colour = currentIndex === index ? lights[index] : "gray";
-
-    return colour;
+    return currentIndex === index ? lights[index] : "gray";
   };
 
   return (
