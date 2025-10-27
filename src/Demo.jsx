@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Demo = () => {
-
-    const [currentIndex,setCurrentIndex]=useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const lights = ["red", "orange", "green"];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+    }, 1500);
 
-  const getColour=(index)=>{
+    return () => clearInterval(interval);
+  }, []);
 
-return currentIndex===index ? lights[index] : "gray"
+  const getColour = (index) => {
 
-  }
+    
+  };
 
   return (
-    <div style={{ display: "flex",justifyContent:"center" }}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div
         className="containers_Box"
         style={{
@@ -29,14 +34,14 @@ return currentIndex===index ? lights[index] : "gray"
         {lights.map((light, index) => {
           return (
             <div
-            key={index}
+              key={index}
               className="container"
               style={{
                 backgroundColor: getColour(index),
                 height: "5rem",
                 width: "5rem",
                 borderRadius: "50%",
-                margin:"auto"
+                margin: "auto",
               }}
             ></div>
           );
