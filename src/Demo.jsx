@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Demo = () => {
   const lights = ["red", "orange", "green"];
 
-  const getColour = (index) => {};
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const getColour = (index) => {
+    return currentIndex === index ? lights[index] : "gray";
+  };
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -16,6 +20,7 @@ const Demo = () => {
           alignItems: "center",
           backgroundColor: "black",
           width: "10rem",
+          flexDirection: "column",
         }}
       >
         {lights.map((light, index) => {
@@ -23,7 +28,8 @@ const Demo = () => {
             <div
               key={index}
               style={{
-                borderColor: "gray",
+                margin:"auto",
+                backgroundColor: getColour(index),
                 height: "3rem",
                 width: "3rem",
                 borderRadius: "50%",
