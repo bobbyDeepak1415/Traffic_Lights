@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Demo = () => {
+
+  const [users,setUsers]=useState([])
+
   return (
     <div>
       <h2>Helllo</h2>
@@ -9,3 +12,4 @@ const Demo = () => {
 };
 
 export default Demo;
+// https://rickandmortyapi.com/api/character
