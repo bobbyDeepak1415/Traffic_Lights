@@ -2,20 +2,23 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Demo = () => {
+  const [users, setUsers] = useState([]);
 
-  const [users,setUsers]=useState([])
-
-  useEffect(()=>{
-    const fetchData=async()=>{
-      try{
-        
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://rickandmortyapi.com/api/character",
+        );
+        const result = response.data.results;
+        setUsers(result);
+      } catch (e) {
+        console.log("failed to fetch", e);
       }
-      const response=await axios.get("https://rickandmortyapi.com/api/character")
+    };
 
-    }
-
-    fetchData()
-  })
+    fetchData();
+  });
 
   return (
     <div>
