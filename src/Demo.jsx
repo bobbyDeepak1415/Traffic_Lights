@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Demo = () => {
 
   const [users,setUsers]=useState([])
+
+  useEffect(()=>{
+    const fetchData=async()=>{
+      try{
+        
+      }
+      const response=await axios.get("https://rickandmortyapi.com/api/character")
+
+    }
+
+    fetchData()
+  })
 
   return (
     <div>
@@ -12,4 +25,3 @@ const Demo = () => {
 };
 
 export default Demo;
-// https://rickandmortyapi.com/api/character
