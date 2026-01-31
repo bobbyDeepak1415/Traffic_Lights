@@ -21,8 +21,11 @@ const Demo = () => {
   });
 
   return (
-    <div>
+    <div style={{height:"100vh",backgroundColor:"slategray"}}>
       <h2>Helllo</h2>
+      {users.map((user) => {
+        return <li key={user.id}>{user.name}</li>;
+      })}
     </div>
   );
 };
