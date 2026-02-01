@@ -13,14 +13,14 @@
 // )
 
 const obj = [
-  { name: "Bob" },
-   { name: "Deepak" },
-  { name: "Kai" },
-   { name: "Sharma" },
-   { name: "Reddy" },
-  { name: "ANaidu" },
+  { name: "Bob",age:30 },
+  { name: "Deepak",age:25 },
+  { name: "Kai",age:35 },
+  { name: "Sharma",age:60 },
+  { name: "Reddy",age:65 },
+  { name: "ANaidu",age:20 },
 ];
 
-const sorted=Object.values(obj)
 
-console.log(sorted.map((client)=>client.name).sort())
+console.log(obj)
+
