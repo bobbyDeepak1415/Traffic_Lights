@@ -21,7 +21,7 @@ const obj = {
   client6: { name: "ANaidu", age: 20 },
 };
 
-const clients = Object.keys
+const clients = Object.keys(obj)
 
 console.log(clients)
 
