@@ -14,7 +14,10 @@ const Demo = () => {
           "https://rickandmortyapi.com/api/character",
         );
         const result = response.data.results;
-        setStatuses(result.map((user) => user.status));
+
+        const uniqueStatuses = Array.from(result.map((user) => user.status));
+
+        setStatuses(uniqueStatuses);
         setUsers(result);
       } catch (e) {
         console.log("failed to fetch", e);
@@ -24,15 +27,22 @@ const Demo = () => {
     fetchData();
   }, []);
 
+  const filteredUsers =
+    filter === "All" ? users : users.filter((user) => user.status === filter);
+
   return (
     <div style={{ height: "100vh", backgroundColor: "slategray" }}>
       <h2>Helllo</h2>
       <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-        {statuses.map((status) => {
-          return <option value={status}>{status}</option>;
+        {statuses.map((status, index) => {
+          return (
+            <option key={index} value={status}>
+              {status}
+            </option>
+          );
         })}
       </select>
-      {users.map((user) => {
+      {filteredUsers.map((user) => {
         return (
           <li key={user.id}>
             {user.name}
