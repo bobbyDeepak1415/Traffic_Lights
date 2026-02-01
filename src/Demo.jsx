@@ -20,11 +20,19 @@ const Demo = () => {
     fetchData();
   });
 
+  const clients=
+
+
   return (
-    <div style={{height:"100vh",backgroundColor:"slategray"}}>
+    <div style={{ height: "100vh", backgroundColor: "slategray" }}>
       <h2>Helllo</h2>
       {users.map((user) => {
-        return <li key={user.id}>{user.name}</li>;
+        return (
+          <li key={user.id}>
+            {user.name}
+            <span>:--{user.status }</span>
+          </li>
+        );
       })}
     </div>
   );
