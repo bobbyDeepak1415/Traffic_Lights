@@ -15,7 +15,9 @@ const Demo = () => {
         );
         const result = response.data.results;
 
-        const uniqueStatuses = Array.from(result.map((user) => user.status));
+        const uniqueStatuses = Array.from(
+          new Set(result.map((user) => user.status)),
+        );
 
         setStatuses(uniqueStatuses);
         setUsers(result);
