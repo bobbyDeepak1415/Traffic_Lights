@@ -11,17 +11,15 @@ const Demo = () => {
           "https://rickandmortyapi.com/api/character",
         );
         const result = response.data.results;
-        setUsers(result);
+        const sorted=[...result].sort((a,b)=>a.name.localeComapre(b.name))
+        setUsers(sorted);
       } catch (e) {
         console.log("failed to fetch", e);
       }
     };
 
     fetchData();
-  });
-
-  const clients=
-
+  },[]);
 
   return (
     <div style={{ height: "100vh", backgroundColor: "slategray" }}>
@@ -30,7 +28,7 @@ const Demo = () => {
         return (
           <li key={user.id}>
             {user.name}
-            <span>:--{user.status }</span>
+            <span>:--{user.status}</span>
           </li>
         );
       })}
