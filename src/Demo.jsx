@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 
 const Demo = () => {
   const [users, setUsers] = useState([]);
+  const [filter, setFilter] = useState("All");
+
+  const [statuses, setStatuses] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,19 +14,24 @@ const Demo = () => {
           "https://rickandmortyapi.com/api/character",
         );
         const result = response.data.results;
-        const sorted=[...result].sort((a,b)=>a.name.localeComapre(b.name))
-        setUsers(sorted);
+        setStatuses(result.map((user) => user.status));
+        setUsers(result);
       } catch (e) {
         console.log("failed to fetch", e);
       }
     };
 
     fetchData();
-  },[]);
+  }, []);
 
   return (
     <div style={{ height: "100vh", backgroundColor: "slategray" }}>
       <h2>Helllo</h2>
+      <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        {statuses.map((status) => {
+          return <option value={status}>{status}</option>;
+        })}
+      </select>
       {users.map((user) => {
         return (
           <li key={user.id}>
