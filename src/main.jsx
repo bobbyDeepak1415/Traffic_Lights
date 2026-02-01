@@ -12,18 +12,20 @@
 //   </StrictMode>,
 // )
 
-const obj = [
-  { name: "Bob", age: 30 },
-  { name: "Deepak", age: 25 },
-  { name: "Kai", age: 35 },
-  { name: "Sharma", age: 60 },
-  { name: "Reddy", age: 65 },
-  { name: "ANaidu", age: 20 },
-];
+const obj = {
+  client1: { name: "Bob", age: 30 },
+  client2: { name: "Deepak", age: 25 },
+  client3: { name: "Kai", age: 35 },
+  client4: { name: "Sharma", age: 60 },
+  client5: { name: "Reddy", age: 65 },
+  client6: { name: "ANaidu", age: 20 },
+};
 
-const clients = Array.from(obj.map((client) => client.name));
+const clients = Object.keys
 
-const candidates=obj.map((obj)=>obj.name)
+console.log(clients)
 
-console.log(clients);
-console.log(candidates);
+
+
+
+
