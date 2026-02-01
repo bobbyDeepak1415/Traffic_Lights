@@ -17,7 +17,7 @@ const Demo = () => {
       }
     };
 
-    fetchData();
+    fetchData();..
   });
 
   return (
