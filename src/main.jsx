@@ -13,14 +13,17 @@
 // )
 
 const obj = [
-  { name: "Bob",age:30 },
-  { name: "Deepak",age:25 },
-  { name: "Kai",age:35 },
-  { name: "Sharma",age:60 },
-  { name: "Reddy",age:65 },
-  { name: "ANaidu",age:20 },
+  { name: "Bob", age: 30 },
+  { name: "Deepak", age: 25 },
+  { name: "Kai", age: 35 },
+  { name: "Sharma", age: 60 },
+  { name: "Reddy", age: 65 },
+  { name: "ANaidu", age: 20 },
 ];
 
+const clients = Array.from(obj.map((client) => client.name));
 
-console.log(obj)
+const candidates=obj.map((obj)=>obj.name)
 
+console.log(clients);
+console.log(candidates);
