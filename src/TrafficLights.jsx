@@ -14,7 +14,7 @@ const TrafficLights = () => {
   const getColour = (index) => {
     return activeIndex === index ? lights[index] : "gray";
   };
-...
+
   return (
     <div className="app">
       <div
