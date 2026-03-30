@@ -1,13 +1,16 @@
+import { useState } from 'react'
 import Demo from './Demo'
-// import TrafficLights from './TrafficLights'
 
 function App() {
+
+  const [count,setCount]=useState(0)
 
   return (
     <>
       <div>
-       {/* <TrafficLights/> */}
-       <Demo/>
+      
+       <Demo setCount={setCount}/>
+       {count}
       </div>
      
     </>
