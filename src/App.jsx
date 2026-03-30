@@ -3,14 +3,14 @@ import Demo from './Demo'
 
 function App() {
 
-  const [count,setCount]=useState(0)
+  const [name,setName]=useState("Bobby")
 
   return (
     <>
       <div>
       
-       <Demo setCount={setCount}/>
-       {count}
+       <Demo setName={setName}/>
+       {name}
       </div>
      
     </>

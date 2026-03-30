@@ -2,10 +2,12 @@
 
 import React from 'react'
 
-const Demo = () => {
+const Demo = (props) => {
+
+    let title="Deepak"
   return (
     <div>
-      Hello
+      <button onClick={()=>props.setName(title)}>Click from child</button>
     </div>
   )
 }
