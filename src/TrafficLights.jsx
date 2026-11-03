@@ -34,6 +34,7 @@ const TrafficLights = () => {
           return (
             <div
               className="container"
+              name={light}
               style={{
                 backgroundColor: getColour(index),
                 height: "4rem",
