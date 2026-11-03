@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './LoaderComponent.css';
 
 const Loader=({boxes})=>{
 
+const [activeIndex,setActiveIndex]=useState(0)
 
   const count=parseInt(boxes) || 0
 
 let localArr=Array.from({length:count})
 
+useEffect(()=>{
+  if(count===0 ) return
 
+  setActiveIndex(0)
+
+  const timer=setInterval(()=>{
+    setActiveIndex(prev=>(prev+1)%count)
+  },500)
+
+  return ()=>clearInterval(timer)
+
+},[count])
 
 
 
@@ -16,7 +28,10 @@ let localArr=Array.from({length:count})
 
     return <div className='box_div'>
         {localArr.map((item,index)=>{
-return <div key={index} name={item} className='box'></div>
+
+const boxClass=index === activeIndex ? "box activeBox" : 'box'
+
+return <div key={index} name={item} className={boxClass}></div>
         })}
     </div>
 }

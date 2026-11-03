@@ -1,6 +1,9 @@
 
 .container{
     display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: slategrey;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -22,5 +25,5 @@
 }
 
 .activeBox{
-    color: brown;
+    background-color: red;
 }
