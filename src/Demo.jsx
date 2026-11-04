@@ -13,7 +13,7 @@ export default Demo;
 //  i configure it to always follow my teams specific file structure that we use,use talwind conventions and use strict mode while using typescript. it ensures that the ai matches my project guidelines automatically without having to give it system prompts from the begining and repeat myself evrytime i open the chat.
 
 
-// mcp 
-// 
+
+// mcp is a standardized protocol that claude ar an ai assistant uses to securely connect to an external data source like a local database or an internal api or a github repository. instead of manually pasting database schemas or logs in to the prompt, the ai uses mcp tools to fetch live data or query information through a controlled interface 
 // 
 // 
