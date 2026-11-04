@@ -13,6 +13,11 @@ const [activeIndex,setActiveIndex]=useState(0)
 
 
 useEffect(()=>{
+
+  if(count===0) return
+
+  setActiveIndex(0)
+
 const timer=setInterval(()=>{
 setActiveIndex(prev=>(prev+1)%count)
 },1000)
@@ -37,7 +42,7 @@ const boxColor= activeIndex===index ? "box activeBox" : "box"
 
 const Demo = () => {
 
-  const [boxInput,setBoxInput]=useState({})
+  const [boxInput,setBoxInput]=useState(0)
 
   return <div className="container">
 
