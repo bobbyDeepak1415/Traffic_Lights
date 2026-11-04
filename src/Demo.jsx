@@ -16,7 +16,7 @@ useEffect(()=>{
 
   if(count===0) return
 
-  setActiveIndex(0)
+  // setActiveIndex(0)
 
 const timer=setInterval(()=>{
 setActiveIndex(prev=>(prev+1)%count)
