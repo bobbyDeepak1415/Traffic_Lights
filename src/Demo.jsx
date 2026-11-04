@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from "react";
 
+
+const Loader=()=>{
+  
+}
+
 const Demo = () => {
 
-  return <div>00000000000</div>
+  const [boxInput,setBoxInput]=useState({})
+
+  return <div className="container">
+
+    <input value={boxInput} type="number" onChange={(e)=>setBoxInput(e.target.value)}/>
+  </div>
   
 };
 
