@@ -1,0 +1,27 @@
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.box_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+     gap: 10px;
+}
+
+.box{
+    height: 20px;
+    width: 20px;
+   
+
+    background-color: black;
+
+}
