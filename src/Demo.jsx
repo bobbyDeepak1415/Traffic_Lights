@@ -10,12 +10,12 @@ const Demo = () => {
   useEffect(()=>{
     const timer=setInterval(()=>{
 
-      setActiveIndex()
+      setActiveIndex(prev=>(prev+1)%colors.length)
     },1000)
 
     return ()=>clearInterval(timer)
 
-  },[])
+  },[colors])
 
 
   const getColor=(index)=>{
