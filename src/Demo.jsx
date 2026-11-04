@@ -5,14 +5,31 @@ import './Demo.css'
 
 const Loader=({boxNum})=>{
 
-
+const [activeIndex,setActiveIndex]=useState(0)
   const count=parseInt(boxNum) || 0
 
   const localArr=Array.from({length:count})
 
+
+
+useEffect(()=>{
+const timer=setInterval(()=>{
+setActiveIndex(prev=>(prev+1)%count)
+},1000)
+
+return ()=>clearInterval(timer)
+},[count])
+
+
+
   return <div className="box_container">
     {localArr.map((item,index)=>{
-      return <div name={item} key={index} className="box"></div>
+
+const boxColor= activeIndex===index ? "box activeBox" : "box"
+ 
+
+
+      return <div name={item} key={index} className={boxColor}></div>
     })}
   </div>
 
