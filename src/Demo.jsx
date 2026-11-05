@@ -11,7 +11,7 @@ const Demo = () => {
   useEffect(()=>{
 
    const timer= setInterval(()=>{
-  setActiveIndex(prev=>(prev+1))
+  setActiveIndex(prev=>(prev+1)%lights.length)
     },800)
 
     return ()=>clearInterval(timer)
