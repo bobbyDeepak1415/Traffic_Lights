@@ -7,9 +7,14 @@ const Loader=({boxNums})=>{
 
   const [activeIndex,setActiveIndex]=useState(0)
 
+  const count=parseInt(boxNums) ||0
+
+  const localArr=Array.from({length:count})
+
+
   useEffect(()=>{
 
-    if(activeIndex===0) return
+    if(count===0) return
 
     setActiveIndex(0)
 
@@ -21,10 +26,7 @@ setActiveIndex(prev=>(prev+1)%count)
 
   },[count])
 
-  const count=parseInt(boxNums) ||0
-
-  const localArr=Array.from({length:count})
-
+  
 
 
 
