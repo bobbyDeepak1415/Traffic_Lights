@@ -3,7 +3,7 @@ import React from 'react'
 const Demo = () => {
   return (
     <div>
-      0000000000lla
+    1.you can pre-configure details like tech stack, skills used and custom rules and instructions in the settings
     </div>
   )
 }
